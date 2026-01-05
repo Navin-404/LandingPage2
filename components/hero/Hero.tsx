@@ -8,7 +8,7 @@ import { ChessScene } from "./ChessScene";
 
 export const Hero = () => {
   return (
-    <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-white min-h-[90vh] flex flex-col justify-center">
+    <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-white min-h-[100vh] flex flex-col justify-center">
       
       {/* 3D Scene Background */}
       <div className="absolute inset-0 md:left-[20%] z-0 pointer-events-auto opacity-80 md:opacity-100">
@@ -39,7 +39,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-6xl md:text-8xl font-bold tracking-tighter text-gray-900 leading-[0.95] mb-8"
+              className="text-6xl md:text-8xl font-medium tracking-tighter text-gray-900 leading-[0.95] mb-8"
             >
               Checkmate the <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-cyan-500">
@@ -63,7 +63,7 @@ export const Hero = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-wrap gap-4"
             >
-              <button className="px-8 py-4 bg-black text-white rounded-xl font-bold hover:bg-gray-800 hover:-translate-y-1 transition-all flex items-center gap-2 shadow-2xl shadow-purple-900/20">
+              <button className="px-8 py-3 bg-black text-white rounded-xl font-bold hover:bg-gray-800 hover:-translate-y-1 transition-all flex items-center gap-2 shadow-2xl shadow-purple-900/20">
                 Analyze My Brand
                 <ArrowRight className="w-4 h-4" />
               </button>
@@ -122,7 +122,7 @@ export const Hero = () => {
         </div>
         
         <div className="mt-20 pt-10 pointer-events-auto">
-          <CompanyLogos />
+          {/* <CompanyLogos /> */}
         </div>
       </div>
     </section>

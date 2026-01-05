@@ -6,7 +6,6 @@ import { Float, ContactShadows, Environment, MeshTransmissionMaterial, Grid, Spa
 import * as THREE from "three";
 
 // --- 1. Procedural "King" (The Strategy) ---
-// Now with a "Wireframe" overlay to look like it's being analyzed
 const KingPiece = (props: any) => {
   return (
     <group {...props}>
@@ -47,7 +46,6 @@ const KingPiece = (props: any) => {
 
 // --- 2. The "Opponent" (Abstract Sphere/Pawn) ---
 const DataOrb = (props: any) => {
-    // This represents the "Algorithm" or "Data" we are mastering
   return (
     <group {...props}>
       <mesh>
@@ -68,7 +66,7 @@ const GlassMaterial = ({ color }: { color: string }) => (
     backside
     samples={4}
     thickness={0.2}
-    chromaticAberration={0.1} // Increased for "glitchy" cyber feel
+    chromaticAberration={0.1} 
     anisotropy={0.1}
     distortion={0.5}
     distortionScale={0.5}
@@ -83,6 +81,10 @@ export const ChessScene = () => {
   return (
     <div className="absolute inset-0 z-0 touch-none">
       <Canvas camera={{ position: [3, 1, 5], fov: 40 }}>
+        
+        {/* Fog helps blend the grid into the background at the horizon */}
+        <fog attach="fog" args={['#ffffff', 5, 25]} />
+
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={10} castShadow />
         <pointLight position={[-10, -5, -10]} intensity={10} color="#06b6d4" />
@@ -91,7 +93,6 @@ export const ChessScene = () => {
 
         {/* --- AI ATMOSPHERE ELEMENTS --- */}
         
-        {/* 1. Digital Dust (The "Data") */}
         <Sparkles 
             count={200} 
             scale={10} 
@@ -101,27 +102,27 @@ export const ChessScene = () => {
             color="#8b5cf6" 
         />
         
-        {/* 2. Floating Strategy Piece */}
         <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
           <KingPiece position={[0.5, -1, 0]} scale={0.7} />
         </Float>
 
-        {/* 3. Floating Data Orb (The Algorithm) */}
         <Float speed={4} rotationIntensity={2} floatIntensity={2}>
           <DataOrb position={[-2, 0, -2]} scale={0.5} />
         </Float>
 
-        {/* 4. Grid Floor */}
+        {/* --- UPDATED DARK GRID --- */}
+        {/* Changed colors to dark grey/black and increased thickness for visibility */}
         <Grid 
           position={[0, -1.5, 0]} 
-          args={[10, 10]} 
+          args={[20, 20]} // Infinite-feeling size
           cellSize={0.5} 
-          cellThickness={0.5} 
-          cellColor="#a78bfa" 
-          sectionSize={2} 
-          sectionThickness={1} 
-          sectionColor="#8b5cf6" 
-          fadeDistance={10} 
+          cellThickness={0.6} // Thicker lines
+          cellColor="#4b5563" // Dark Grey (Tailwind Gray-600)
+          sectionSize={2.5} 
+          sectionThickness={1.2} // Very thick section lines
+          sectionColor="#000000" // Pure Black
+          fadeDistance={20} // Distance before it fades out
+          infiniteGrid
         />
 
         <ContactShadows position={[0, -1.5, 0]} opacity={0.5} scale={10} blur={2.5} far={4} />

@@ -7,6 +7,7 @@ import { ProblemSection } from "@/components/problem/ProblemSection";
 import { HowItWorks } from "@/components/how-it-works/HowItWorks";
 import { FinalCTA } from "@/components/cta/FinalCTA";
 import { Footer } from "@/components/footer/Footer";
+import { BrandMarquee } from "@/components/brand-marquee/BrandMarquee";
 
 // Note: For this example, I've only separated Navbar and Hero as requested.
 // In a full project, you would create folders for all sections.
@@ -23,6 +24,7 @@ export default function Home() {
     <main className="bg-background min-h-screen selection:bg-primary/20">
       <Navbar />
       <Hero />
+      <BrandMarquee />
       <div className="space-y-0 bg-background relative z-10">
         {/* Replace with actual components when ready */}
         <ProblemSectionPlaceholder />
