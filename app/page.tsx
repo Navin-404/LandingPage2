@@ -5,9 +5,10 @@ import { Navbar } from "@/components/navbar/Navbar";
 import { Hero } from "@/components/hero/Hero";
 import { ProblemSection } from "@/components/problem/ProblemSection";
 import { HowItWorks } from "@/components/how-it-works/HowItWorks";
-import { FinalCTA } from "@/components/cta/FinalCTA";
 import { Footer } from "@/components/footer/Footer";
 import { BrandMarquee } from "@/components/brand-marquee/BrandMarquee";
+import { Services } from "@/components/services/Services";
+import { CTASection } from "@/components/cta/CTASection";
 
 // Note: For this example, I've only separated Navbar and Hero as requested.
 // In a full project, you would create folders for all sections.
@@ -25,13 +26,17 @@ export default function Home() {
       <Navbar />
       <Hero />
       <BrandMarquee />
-      <div className="space-y-0 bg-background relative z-10">
-        {/* Replace with actual components when ready */}
-        <ProblemSectionPlaceholder />
-        <HowItWorksPlaceholder />
-        <FinalCTAPlaceholder />
-      </div>
-      <FooterPlaceholder />
+      {/* 3. Problem */}
+      <ProblemSection />
+      
+      {/* 4. Services (The 3 Cards) */}
+      <Services />
+
+      {/* 5. CTA (AI-Native) */}
+      <CTASection />
+
+      {/* 6. Footer */}
+      <Footer />
     </main>
   );
 }
